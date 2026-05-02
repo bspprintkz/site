@@ -2,8 +2,8 @@ import crypto from "crypto";
 
 export default async function handler(req, res) {
   const cloudName = "dyabifcjs";
-  const apiKey = "196112579711198";
-  const apiSecret = "2oAqYJwBP2AFWg3PWsLtl0dpjN0";
+  const apiKey = "175982176214121";
+  const apiSecret = "B4saHzfIYWQmYaJUVYXaLERqSmo";
 
   const timestamp = Math.floor(Date.now() / 1000);
 
