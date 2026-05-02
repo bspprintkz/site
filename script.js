@@ -1,11 +1,30 @@
 const gallery = document.getElementById("gallery");
 
-const test = [
-  "https://res.cloudinary.com/demo/image/upload/sample.jpg"
-];
+async function loadImages() {
+  const res = await fetch("https://site-zeta-orpin.vercel.app/api/images");
+  const data = await res.json();
 
-test.forEach(src => {
-  const img = document.createElement("img");
+  data.resources.forEach(item => {
+    const img = document.createElement("img");
+
+    img.src = item.secure_url;
+
+    img.onclick = () => openLightbox(img.src);
+
+    gallery.appendChild(img);
+  });
+}
+
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
+
   img.src = src;
-  gallery.appendChild(img);
-});
+  lightbox.style.display = "flex";
+}
+
+document.getElementById("lightbox").onclick = () => {
+  document.getElementById("lightbox").style.display = "none";
+};
+
+loadImages();
