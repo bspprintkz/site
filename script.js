@@ -1,7 +1,7 @@
 const gallery = document.getElementById("gallery");
 
 async function loadImages() {
-  const res = await fetch("https://your-site.vercel.app/api/images");
+  const res = await fetch("https://site-zeta-orpin.vercel.app/api/images");
   const data = await res.json();
 
   data.resources.forEach(item => {
